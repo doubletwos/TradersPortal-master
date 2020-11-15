@@ -1,0 +1,94 @@
+﻿@model TradersPortal.Models.Trade
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<a href="#" class="RegUserOrgButtonColour" data-toggle="modal" data-target="#myModal">Add Trade</a>
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a href="#" class="close" data-dismiss="modal">&times;</a>
+				<h3 class="modal-title">Add Trade </h3>
+			</div>
+			<div class="modal-body">
+				<form id="AddTradeForm">
+
+					@Html.AntiForgeryToken()
+					@{ 
+						HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+					}
+					<div class="form-horizontal">
+						<h4>Trade</h4>
+						<hr />
+
+						<div class="form-group">
+							@Html.LabelFor(model => model.TradeName, htmlAttributes: new { @class = "control-label col-md-2" })
+							<div class="col-md-10">
+								@Html.EditorFor(model => model.TradeName, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.TradeName, "", new { @class = "text-danger" })
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<input type="reset" value="Cancel" class="btn btn-default" data-dismiss="modal" />
+							<input type="submit" value="Add Trader" class="btn btn-default" id="btnSubmit" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/custom-validator")
+}
+
+
+
+@*<script>
+	$(document).ready(function () {
+		$("#btnSubmit").on("click", function () {
+			var data = $("#AddTradeForm").serialize();
+			$.ajax({
+				type: "POST",
+				url: "/Trades/Create",
+				data: data,
+				success: function (response) {
+					alert("New Trade Added");
+					$("#myModal").modal("hide");
+					$("#AddTradeForm")[0].reset();
+					window.location.reload();
+				}
+			})
+		})
+	})
+</script>*@
+
+
+
+<script>
+	$(document).ready(function () {
+		debugger
+		$("#btnSubmit").click(function () {
+			if ($("#AddTradeForm").valid()){
+			   var data = $("#AddTradeForm").serialize();
+			   $.ajax({
+				type: "POST",
+				url: "/Trades/Create",
+				data: data,
+				success: function (response) {
+					alert("New user created");
+					$("#myModal").modal("hide");
+					$("#AddTradeForm")[0].reset();
+					window.location.reload();
+				}
+			})
+		}
+		})
+	})
+</script>

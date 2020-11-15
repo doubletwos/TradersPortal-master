@@ -1,0 +1,60 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Excel Import Test</h2>
+
+@*<form action="" method="post">
+	<button class="btn btn-primary" type="submit">Import</button>
+
+
+</form>*@
+
+
+
+
+@*@using (Html.BeginForm("Uploader", "Import", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<div class="panel panel-body" style="min-height:256px">
+		<div class="col-md-9">
+			<div class="col-md-10">
+				<label>choose file: </label>
+				<input type="file" id="userFile" name="postedFile" /><br />
+				<div class="btn btn-primary">
+
+					<input type="submit" value="Upload" />
+				</div>
+
+			</div>
+		</div>
+	</div>
+}*@
+
+
+
+
+@using (Html.BeginForm("Uploader", "Import", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+<div class="panel panel-body" style="min-height:256px">
+	<div class="col-md-9">
+		<div class="col-md-10">
+			<div class="btn btn-primary">
+				<input type="file" id="Avatar" name="postedFile" />
+			</div>
+		</div>
+
+
+
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Submit" class="btn btn-default" />
+		</div>
+	</div>
+
+
+</div>
+}

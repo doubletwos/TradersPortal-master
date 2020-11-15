@@ -1,0 +1,78 @@
+﻿@model TradersPortal.Models.Trader
+@{
+	ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+	<h4>Trader</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		@if (Model.Files.All(f => f.FileType == TradersPortal.Models.FileType.Avatar))
+		{
+			<dt>
+				Avatar
+			</dt>
+			<dd>
+				<img src="~/File?id=@Model.Files.First(f => f.FileType == TradersPortal.Models.FileType.Avatar).FileId" alt="avatar" border-radius="50%" width="200" />
+			</dd>
+		}
+		<dt>
+			@Html.DisplayNameFor(model => model.State.StateName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.State.StateName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Trade.TradeName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Trade.TradeName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.BusinessName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.BusinessName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ContactFirstName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.ContactFirstName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ContactLastName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.ContactLastName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Telephone)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Telephone)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Mobile)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Mobile)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrationDate)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.RegistrationDate)
+		</dd>
+	</dl>
+</div>
+<p>
+	@*@Html.ActionLink("Edit", "Edit", new { id = Model.TraderId }) |*@
+	<input type="button" value="Back" onclick="location.href='@Url.Action("Index", "Home")'" class="btn btn-primary btn-xs " />
+</p>

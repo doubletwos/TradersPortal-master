@@ -1,0 +1,141 @@
+﻿@model IEnumerable<TradersPortal.Models.Trader>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="traders" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+           
+
+            <th>
+                Business Name
+            </th>
+
+            <th>
+                Contact Name
+            </th>
+
+            <th>
+                Telephone
+            </th>
+            <th>
+                Mobile Number
+            </th>
+            <th>
+                email address
+            </th>
+            <th>
+                Registration Date
+            </th>
+            <th>
+                Trade Name
+            </th>
+            <th>State</th>
+        </tr>
+    </thead>
+
+</table>
+
+
+@section scripts
+    {
+    <script>
+    
+                   
+         $(document).ready(function () {
+             $("#traders").DataTable({
+                 "ordering": false,
+
+                 
+
+
+                ajax: {
+                    url: "api/traders",
+                    dataSrc: ""
+                },
+                columns: [
+
+                    
+                    {
+
+
+                        data: "traderId",
+                        render: function (data, type, trader) {
+                            return "<a href='/traders/details/" + trader.traderId + "'>" + trader.businessName + "</a>";
+
+                        }
+
+                    },
+                    {
+                        data: "contactFirstName",
+                        render: function (data, type, row) {
+                            return row.contactFirstName + ' ' + row.contactLastName;
+                        }
+
+                    },
+
+                    {
+                        data: "telephone"
+
+                    },
+                    {
+                        data: "mobile"
+
+                    },
+                    {
+                        data: "email"
+
+                    },
+                    {
+                        data: "registrationDate"
+
+                    },
+                    {
+                        data: "trade.tradeName"
+
+                    },
+                    {
+                        data: "state.stateName"
+
+                    }
+
+                ]
+
+
+
+            }
+
+
+
+            )
+
+
+
+
+
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+}

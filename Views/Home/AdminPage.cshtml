@@ -1,0 +1,89 @@
+﻿
+@{
+	ViewBag.Title = "AdminPage";
+}
+
+<h2>Admin Page</h2>
+
+
+
+<div class="row">
+	<div class="col-md-4">
+
+
+
+		<div class="jumbotron">
+			<input type="button" value="Add Trade" onclick="location.href='@Url.Action("Create", "Trades")'" class="btn btn-primary " />
+
+			<input type="button" value="Trade List" onclick="location.href='@Url.Action("Index", "Trades")'" class="btn btn-primary " />
+
+			@{
+				Html.RenderAction("AddTrade", "Trades");
+			}
+
+
+
+		</div>
+	</div>
+
+	<div class="col-md-4">
+
+
+
+		<div class="jumbotron">
+			<input type="button" value="Register Trader" onclick="location.href='@Url.Action("Create", "Traders")'" class="btn btn-primary " />
+
+			<input type="button" value="Traders List" onclick="location.href='@Url.Action("IndexAd", "Traders")'" class="btn btn-primary " />
+
+
+
+		</div>
+	</div>
+
+	<div class="col-md-4">
+
+
+
+		<div class="jumbotron">
+			<input type="button" value="Add User" onclick="location.href='@Url.Action("Create", "Traders")'" class="btn btn-primary " />
+
+			<input type="button" value="Registered Users List" onclick="location.href='@Url.Action("RegisteredUsers", "Account")'" class="btn btn-primary " />
+
+
+
+		</div>
+	</div>
+
+
+
+
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="jumbotron">
+			<input type="button" value="Add State" onclick="location.href='@Url.Action("Create", "States")'" class="btn btn-primary " />
+
+			<input type="button" value="State Lists" onclick="location.href='@Url.Action("Index", "States")'" class="btn btn-primary " />
+
+
+
+		</div>
+	</div>
+
+	<div class="col-md-4">
+	</div>
+
+	<div class="col-md-4">
+	</div>
+
+</div>
+
+
+
+
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/custom-validator")
+}
